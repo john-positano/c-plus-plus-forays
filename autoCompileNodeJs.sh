@@ -1,6 +1,11 @@
 #!/bin/bash
 
-for file in $@ 
-  do 
-    nodemon --exec "gcc -x c++ ./src/${file} -lstdc++ -o ./out/${file/.cpp/.o} && ./out/${file/.cpp/.o}" -e .h,.cpp;
+for folder in $@
+  do
+    nodemon --exec "
+      cd ./node-src/${folder} && 
+      node-gyp clean && 
+      node-gyp configure &&
+      node-gyp build
+    " -e .h,.cpp
   done;
