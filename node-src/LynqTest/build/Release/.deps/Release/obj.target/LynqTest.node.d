@@ -1,0 +1,1 @@
+cmd_Release/obj.target/LynqTest.node := g++ -shared -pthread -rdynamic -m64  -Wl,-soname=LynqTest.node -o Release/obj.target/LynqTest.node -Wl,--start-group Release/obj.target/LynqTest/LynqTest.o -Wl,--end-group 
